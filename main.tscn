@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=3 uid="uid://mwekkr87iwcf"]
+
+[ext_resource type="Script" path="res://Startup.gd" id="1_nq3na"]
+[ext_resource type="Script" path="res://path_follow_3d.gd" id="2_olhcq"]
+[ext_resource type="PackedScene" uid="uid://bffxrfwn7xr8q" path="res://statue_of_liberty.glb" id="3_ss6mt"]
+[ext_resource type="Script" path="res://addons/curvemesh3d/curvemesh3d.gd" id="4_n2jqr"]
+[ext_resource type="Texture2D" uid="uid://d0erghkp7ojnt" path="res://icon.svg" id="5_d83hu"]
+[ext_resource type="Script" path="res://PathSync.gd" id="6_fctab"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_xql00"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m160s"]
+sky_top_color = Color(0.276845, 0.629905, 1, 1)
+sky_horizon_color = Color(0.628727, 0.82954, 0.938511, 1)
+ground_bottom_color = Color(0.047567, 0.100932, 0.152392, 1)
+ground_horizon_color = Color(0.564808, 0.78579, 1, 1)
+
+[sub_resource type="Sky" id="Sky_bphrt"]
+sky_material = SubResource("ProceduralSkyMaterial_m160s")
+
+[sub_resource type="Environment" id="Environment_j225h"]
+background_mode = 2
+sky = SubResource("Sky_bphrt")
+
+[sub_resource type="Curve3D" id="Curve3D_fwxsg"]
+_data = {
+"points": PackedVector3Array(-0.0472434, -0.122358, 1.67534, 0.0472434, 0.122358, -1.67534, 0.311719, 1.42943, -1.3981, 0.123417, -0.314579, 1.21624, -0.123417, 0.314579, -1.21624, -0.277601, 1.45943, -5.08417, 1.20689, -0.239231, 0.378199, -1.20689, 0.239231, -0.378199, -3.29737, 2.61105, -7.88471, 1.51618, -1.14193, 0.183361, -1.51618, 1.14193, -0.183361, -9.34022, 5.18446, -8.34772, 0.394639, -0.285053, -4.82174, -0.394639, 0.285053, 4.82174, -20.4295, 17.1697, -5.75454, -0.179087, -0.49263, -1.97763, 0.179087, 0.49263, 1.97763, -20.1841, 17.6965, 0.380246, -2.62898, 1.1743, -0.365148, 2.62898, -1.1743, 0.365148, -16.3044, 16.098, 4.09042, -3.31737, 0.336427, 2.88573, 3.31737, -0.336427, -2.88573, -1.35453, 2.32714, 8.80835, 0.294433, -0.307631, 2.02033, -0.294433, 0.307631, -2.02033, 0.447173, 1.32698, 1.85209, -0.0472434, -0.122358, 1.67534, 0.0472434, 0.122358, -1.67534, 0.311719, 1.42943, -1.3981),
+"tilts": PackedFloat32Array(0, 0, 0, 0.152356, 0.397917, 0.933521, 0.0945766, -0.763889, -0.517877, 0)
+}
+point_count = 10
+
+[sub_resource type="Curve" id="Curve_qrdk4"]
+_data = [Vector2(0.205263, 0.89011), 0.0, 0.0, 0, 0, Vector2(0.6, 0.637363), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq0fg"]
+albedo_texture = ExtResource("5_d83hu")
+uv1_scale = Vector3(1.955, 500, 1)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_nq3na")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1.8292, 0, 0, 0, 1, 0, 0, 0, 1.66729, 0, 0, 0)
+mesh = SubResource("PlaneMesh_xql00")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="CSGMesh3D"]
+environment = SubResource("Environment_j225h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGMesh3D/WorldEnvironment"]
+transform = Transform3D(0.833626, 0.504158, -0.225595, 0, 0.408442, 0.912784, 0.55233, -0.76092, 0.340488, 0, 4.13963, 4.28707)
+light_energy = 3.263
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43851, 7.85052, -0.00645253)
+curve = SubResource("Curve3D_fwxsg")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(0.948338, 0.07209, 0.308517, 0.0162024, 0.961325, -0.274431, -0.316415, 0.265289, 0.910615, -0.356364, 1.55884, -5.43859)
+progress = 4.1378
+script = ExtResource("2_olhcq")
+friction = 1.0
+debug = true
+velocity = 0.807766
+acceleration = 0.957738
+
+[node name="XROrigin3D" type="XROrigin3D" parent="Path3D/PathFollow3D"]
+current = true
+
+[node name="XRCamera3D" type="XRCamera3D" parent="Path3D/PathFollow3D/XROrigin3D"]
+current = true
+
+[node name="Left Hand" type="XRController3D" parent="Path3D/PathFollow3D/XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Path3D/PathFollow3D/XROrigin3D/Left Hand"]
+radius = 0.03
+
+[node name="Right Hand" type="XRController3D" parent="Path3D/PathFollow3D/XROrigin3D"]
+transform = Transform3D(1, 2.98023e-08, -1.49012e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0, 0, 0)
+tracker = &"right_hand"
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Path3D/PathFollow3D/XROrigin3D/Right Hand"]
+radius = 0.03
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Path3D/PathFollow3D"]
+radius = 0.2
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Path3D/PathFollow3D/CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.287851)
+radius = 0.097001
+height = 0.449205
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Path3D/PathFollow3D/CSGSphere3D/CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.000680447, -0.28611, -0.27703)
+radius = 0.097001
+height = 1.467
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_ss6mt")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 20.6594, 11.2901, 15.9544)
+
+[node name="Path3D2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43851, 7.85052, -0.00645253)
+curve = SubResource("Curve3D_fwxsg")
+script = ExtResource("4_n2jqr")
+radius = 0.0515
+radius_profile = SubResource("Curve_qrdk4")
+material = SubResource("StandardMaterial3D_jq0fg")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("6_fctab")
+
+[connection signal="ready" from="." to="." method="_ready"]
