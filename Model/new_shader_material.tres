@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dmc2158y7vi50"]
+
+[ext_resource type="Shader" path="res://Model/MC.gdshader" id="1_8h6dx"]
+[ext_resource type="Texture2D" uid="uid://c4wgldevx7imw" path="res://Model/high_quality_minecraft_world_0.png" id="2_hkmry"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8h6dx")
+shader_parameter/ratio = 0.63
+shader_parameter/TEXTURES = ExtResource("2_hkmry")

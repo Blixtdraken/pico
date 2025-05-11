@@ -1,13 +1,30 @@
-[gd_scene load_steps=14 format=3 uid="uid://mwekkr87iwcf"]
+[gd_scene load_steps=18 format=3 uid="uid://mwekkr87iwcf"]
 
 [ext_resource type="Script" path="res://Startup.gd" id="1_nq3na"]
 [ext_resource type="Script" path="res://path_follow_3d.gd" id="2_olhcq"]
-[ext_resource type="PackedScene" uid="uid://bffxrfwn7xr8q" path="res://statue_of_liberty.glb" id="3_ss6mt"]
-[ext_resource type="Script" path="res://addons/curvemesh3d/curvemesh3d.gd" id="4_n2jqr"]
-[ext_resource type="Texture2D" uid="uid://d0erghkp7ojnt" path="res://icon.svg" id="5_d83hu"]
-[ext_resource type="Script" path="res://PathSync.gd" id="6_fctab"]
+[ext_resource type="Script" path="res://xr_origin_3d.gd" id="4_511nx"]
+[ext_resource type="PackedScene" uid="uid://diepng1s5xe0d" path="res://Minecart.glb" id="4_b1t3w"]
+[ext_resource type="Script" path="res://left_hand.gd" id="5_eb64c"]
+[ext_resource type="Material" uid="uid://csqq58ds17qif" path="res://Model/new_standard_material_3d.tres" id="8_5ugge"]
+[ext_resource type="Material" uid="uid://b5pgxq4nkjrrn" path="res://new_standard_material_3d.tres" id="8_pxo1b"]
+[ext_resource type="Shader" path="res://Model/MC.gdshader" id="9_v25x6"]
+[ext_resource type="PackedScene" uid="uid://c4h8lvn00865g" path="res://Model/high_quality_minecraft_world.glb" id="10_65a54"]
+[ext_resource type="Material" uid="uid://djyk3dphkd5c" path="res://Model/Island.tres" id="11_fxspu"]
+[ext_resource type="Material" uid="uid://d4fx4sfed3k6h" path="res://Model/Island2.tres" id="12_mnwht"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_xql00"]
+[sub_resource type="Curve3D" id="Curve3D_ailk2"]
+_data = {
+"points": PackedVector3Array(0.921841, -5.867, 15.5819, -0.921841, 5.867, -15.5819, -62.6092, 10.8906, -8.57561, -7.71684, -2.64612, 7.65774, 7.71684, 2.64612, -7.65774, -49.6118, 3.6659, -49.8849, -11.1595, -4.23683, -0.760708, 11.1595, 4.23683, 0.760708, -11.1241, 69.2342, -43.517, -22.4017, 11.5812, -2.47637, 22.4017, -11.5812, 2.47637, 36.5176, 28.1561, -48.2541, -13.0052, -2.15866, -23.3346, 13.0052, 2.15866, 23.3346, 65.9881, 2.80311, -26.0865, 1.41396, 4.64145, -11.9862, -1.41396, -4.64145, 11.9862, 79.2434, -7.62939e-06, 31.1679, 18.9281, -7.41858, 2.40897, -18.9281, 7.41858, -2.40897, 42.358, -7.62939e-06, 66.7038, 12.7654, -1.27359, 4.59042, -12.7654, 1.27359, -4.59042, -32.8481, 2.41221, 61.066, 2.89013, -3.80406, 7.25326, -2.89013, 3.80406, -7.25326, -51.3525, 9.387, 48.125, -8.00138, -5.68634, 0.744335, 8.00138, 5.68634, -0.744335, -44.794, 30.7094, 41.7071, -3.0515, 8.00323, -8.63364, 3.0515, -8.00323, 8.63364, -26.9969, 33.6719, 55.729, 9.12756, 1.13367, 5.90021, -9.12756, -1.13367, -5.90021, -37.4811, 8.49337, 57.5364, 4.26262, -1.5957, 9.51421, -4.26262, 1.5957, -9.51421, -52.7911, 3.90963, 35.2129, 0.921841, -5.867, 15.5819, -0.921841, 5.867, -15.5819, -62.6092, 10.8906, -8.57561),
+"tilts": PackedFloat32Array(0, 0, 0, -0.48247, 0.812365, 0.352104, 0.902867, 0.563374, 0.390747, 1.33961, 0.144415, 0.0608052, 0, 0)
+}
+point_count = 14
+
+[sub_resource type="BoxMesh" id="BoxMesh_jnn5m"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uoqf4"]
+render_priority = 0
+shader = ExtResource("9_v25x6")
+shader_parameter/ratio = 0.63
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m160s"]
 sky_top_color = Color(0.276845, 0.629905, 1, 1)
@@ -21,93 +38,351 @@ sky_material = SubResource("ProceduralSkyMaterial_m160s")
 [sub_resource type="Environment" id="Environment_j225h"]
 background_mode = 2
 sky = SubResource("Sky_bphrt")
-
-[sub_resource type="Curve3D" id="Curve3D_fwxsg"]
-_data = {
-"points": PackedVector3Array(-0.0472434, -0.122358, 1.67534, 0.0472434, 0.122358, -1.67534, 0.311719, 1.42943, -1.3981, 0.123417, -0.314579, 1.21624, -0.123417, 0.314579, -1.21624, -0.277601, 1.45943, -5.08417, 1.20689, -0.239231, 0.378199, -1.20689, 0.239231, -0.378199, -3.29737, 2.61105, -7.88471, 1.51618, -1.14193, 0.183361, -1.51618, 1.14193, -0.183361, -9.34022, 5.18446, -8.34772, 0.394639, -0.285053, -4.82174, -0.394639, 0.285053, 4.82174, -20.4295, 17.1697, -5.75454, -0.179087, -0.49263, -1.97763, 0.179087, 0.49263, 1.97763, -20.1841, 17.6965, 0.380246, -2.62898, 1.1743, -0.365148, 2.62898, -1.1743, 0.365148, -16.3044, 16.098, 4.09042, -3.31737, 0.336427, 2.88573, 3.31737, -0.336427, -2.88573, -1.35453, 2.32714, 8.80835, 0.294433, -0.307631, 2.02033, -0.294433, 0.307631, -2.02033, 0.447173, 1.32698, 1.85209, -0.0472434, -0.122358, 1.67534, 0.0472434, 0.122358, -1.67534, 0.311719, 1.42943, -1.3981),
-"tilts": PackedFloat32Array(0, 0, 0, 0.152356, 0.397917, 0.933521, 0.0945766, -0.763889, -0.517877, 0)
-}
-point_count = 10
-
-[sub_resource type="Curve" id="Curve_qrdk4"]
-_data = [Vector2(0.205263, 0.89011), 0.0, 0.0, 0, 0, Vector2(0.6, 0.637363), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jq0fg"]
-albedo_texture = ExtResource("5_d83hu")
-uv1_scale = Vector3(1.955, 500, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.551358, 0.551358, 0.551358, 1)
+glow_intensity = 8.0
+fog_mode = 1
+fog_light_energy = 3.75
+fog_density = 0.5894
+fog_height_density = 1.4834
+fog_depth_curve = 15.455
+fog_depth_begin = 42.5
+fog_depth_end = 159.0
+adjustment_brightness = 1.17
+adjustment_contrast = 8.0
+adjustment_saturation = 3.01
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_nq3na")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(1.8292, 0, 0, 0, 1, 0, 0, 0, 1.66729, 0, 0, 0)
-mesh = SubResource("PlaneMesh_xql00")
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="CSGMesh3D"]
-environment = SubResource("Environment_j225h")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CSGMesh3D/WorldEnvironment"]
-transform = Transform3D(0.833626, 0.504158, -0.225595, 0, 0.408442, 0.912784, 0.55233, -0.76092, 0.340488, 0, 4.13963, 4.28707)
-light_energy = 3.263
-
 [node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43851, 7.85052, -0.00645253)
-curve = SubResource("Curve3D_fwxsg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.31092, 62.3293, -0.513842)
+curve = SubResource("Curve3D_ailk2")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.948338, 0.07209, 0.308517, 0.0162024, 0.961325, -0.274431, -0.316415, 0.265289, 0.910615, -0.356364, 1.55884, -5.43859)
-progress = 4.1378
+transform = Transform3D(0.998138, 0.020776, 0.055621, -9.31214e-10, 0.935938, -0.353996, -0.0590508, 0.351177, 0.940163, -62.6092, 10.8906, -8.57561)
 script = ExtResource("2_olhcq")
-friction = 1.0
-debug = true
-velocity = 0.807766
-acceleration = 0.957738
+climb_speed = 5.0
 
 [node name="XROrigin3D" type="XROrigin3D" parent="Path3D/PathFollow3D"]
 current = true
+script = ExtResource("4_511nx")
 
 [node name="XRCamera3D" type="XRCamera3D" parent="Path3D/PathFollow3D/XROrigin3D"]
+transform = Transform3D(1.0001, 0, 0, 0, 0.973667, 0.228362, 0, -0.228371, 0.973627, 0.005, 1.894, 1.691)
 current = true
+fov = 90.0
 
 [node name="Left Hand" type="XRController3D" parent="Path3D/PathFollow3D/XROrigin3D"]
+transform = Transform3D(1, 4.65661e-10, 7.45058e-09, 4.65661e-10, 1, -3.72529e-09, -7.45058e-09, 0, 1, 0, 0, 0)
 tracker = &"left_hand"
+pose = &"aim"
+script = ExtResource("5_eb64c")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Path3D/PathFollow3D/XROrigin3D/Left Hand"]
-radius = 0.03
+radius = 0.08
 
 [node name="Right Hand" type="XRController3D" parent="Path3D/PathFollow3D/XROrigin3D"]
-transform = Transform3D(1, 2.98023e-08, -1.49012e-08, -2.98023e-08, 1, 0, 0, 2.98023e-08, 1, 0, 0, 0)
+transform = Transform3D(1, 3.0268e-08, -7.45058e-09, -2.8871e-08, 1, -3.72529e-09, -7.45058e-09, 2.6077e-08, 1, 0, 0, 0)
 tracker = &"right_hand"
+pose = &"aim"
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="Path3D/PathFollow3D/XROrigin3D/Right Hand"]
-radius = 0.03
+radius = 0.08
+rings = 8
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="Path3D/PathFollow3D"]
-radius = 0.2
+[node name="CSGSphere3D" type="MeshInstance3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(1, 0.000158584, -7.20331e-06, -0.000158706, 0.999742, -0.0227042, 3.60189e-06, 0.0227042, 0.999742, 0, 0.525524, -0.0178995)
+visible = false
+mesh = SubResource("BoxMesh_jnn5m")
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Path3D/PathFollow3D/CSGSphere3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.287851)
-radius = 0.097001
-height = 0.449205
+[node name="ClimbTimer" type="Timer" parent="Path3D/PathFollow3D"]
+process_mode = 3
+wait_time = 0.2
+one_shot = true
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Path3D/PathFollow3D/CSGSphere3D/CSGCylinder3D"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.000680447, -0.28611, -0.27703)
-radius = 0.097001
-height = 1.467
+[node name="Minecart" parent="Path3D/PathFollow3D" instance=ExtResource("4_b1t3w")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.05, 0)
 
-[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_ss6mt")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 20.6594, 11.2901, 15.9544)
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-0.5, 0, -0.5, 0, 0.5, 0, 0.5, 0)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = false
+path_u_distance = 1.0
+path_joined = true
+material = ExtResource("8_5ugge")
 
-[node name="Path3D2" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.43851, 7.85052, -0.00645253)
-curve = SubResource("Curve3D_fwxsg")
-script = ExtResource("4_n2jqr")
-radius = 0.0515
-radius_profile = SubResource("Curve_qrdk4")
-material = SubResource("StandardMaterial3D_jq0fg")
+[node name="Planks" type="CSGPolygon3D" parent="Path3D"]
+polygon = PackedVector2Array(-0.5, -1.05, -0.5, -0.05, 0.5, -0.05, 0.5, -1.05)
+mode = 2
+path_node = NodePath("..")
+path_interval_type = 0
+path_interval = 1.0
+path_simplify_angle = 0.0
+path_rotation = 2
+path_local = true
+path_continuous_u = false
+path_u_distance = 1.0
+path_joined = true
+material = ExtResource("8_pxo1b")
 
-[node name="Node" type="Node" parent="."]
-script = ExtResource("6_fctab")
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("10_65a54")]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="Object_2" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="0"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_3" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="1"]
+material_override = ExtResource("11_fxspu")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles/Object_3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6654, 0.50023)
+visible = false
+material_override = SubResource("ShaderMaterial_uoqf4")
+radius = 0.264382
+radial_segments = 50
+rings = 50
+
+[node name="Object_4" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="2"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_5" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="3"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_6" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="4"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_7" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="5"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_8" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="6"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_9" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="7"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_10" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="8"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_11" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="9"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_12" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="10"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_13" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="11"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_14" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="12"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_15" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="13"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_16" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="14"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_17" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="15"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_18" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="16"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_19" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="17"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_20" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="18"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_21" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="19"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_22" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="20"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_23" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="21"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_24" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="22"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_25" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="23"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_26" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="24"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_27" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="25"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_28" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="26"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_29" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="27"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_30" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="28"]
+visible = false
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_31" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="29"]
+visible = false
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_32" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="30"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_33" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="31"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_34" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="32"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_35" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="33"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_36" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="34"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_37" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="35"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_38" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="36"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_39" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="37"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_40" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="38"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_41" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="39"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_42" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="40"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_43" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="41"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_44" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="42"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_45" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="43"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_46" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="44"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_47" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="45"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_48" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="46"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_49" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="47"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_50" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="48"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_51" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="49"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_52" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="50"]
+visible = false
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_53" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="51"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_54" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="52"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_55" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="53"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_56" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="54"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_57" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="55"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_58" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="56"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_59" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="57"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_60" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="58"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_61" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="59"]
+material_override = ExtResource("12_mnwht")
+
+[node name="Object_62" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="60"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_63" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="61"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_64" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="62"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_65" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="63"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_66" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="64"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_67" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="65"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_68" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="66"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_69" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="67"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_70" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="68"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_71" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="69"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_72" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="70"]
+visible = false
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_73" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="71"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_74" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="72"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_75" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="73"]
+material_override = ExtResource("11_fxspu")
+
+[node name="Object_76" parent="Sketchfab_Scene/Sketchfab_model/Mineways2Skfb_obj_minecraft_cleaner_materialmerger_gles" index="74"]
+material_override = ExtResource("11_fxspu")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_j225h")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.833626, 0.504158, -0.225595, 0, 0.408442, 0.912784, 0.55233, -0.76092, 0.340488, 0, 4.13963, 4.28707)
 
 [connection signal="ready" from="." to="." method="_ready"]
+[connection signal="button_pressed" from="Path3D/PathFollow3D/XROrigin3D/Left Hand" to="Path3D/PathFollow3D/XROrigin3D" method="_on_left_hand_button_pressed"]
+[connection signal="button_released" from="Path3D/PathFollow3D/XROrigin3D/Left Hand" to="Path3D/PathFollow3D/XROrigin3D" method="_on_left_hand_button_released"]
+[connection signal="input_float_changed" from="Path3D/PathFollow3D/XROrigin3D/Left Hand" to="Path3D/PathFollow3D/XROrigin3D/Left Hand" method="_on_input_float_changed"]
+[connection signal="input_vector2_changed" from="Path3D/PathFollow3D/XROrigin3D/Left Hand" to="Path3D/PathFollow3D/XROrigin3D/Left Hand" method="_on_input_vector_2_changed"]
+[connection signal="timeout" from="Path3D/PathFollow3D/ClimbTimer" to="Path3D/PathFollow3D" method="_climb_timer_timeout"]
+
+[editable path="Sketchfab_Scene"]

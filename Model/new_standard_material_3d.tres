@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://csqq58ds17qif"]
+
+[ext_resource type="Texture2D" uid="uid://bbqmy60xx8obg" path="res://Texture/rail.png" id="1_21eds"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+diffuse_mode = 2
+albedo_texture = ExtResource("1_21eds")
+uv1_scale = Vector3(1, 8, 1)
+texture_filter = 0

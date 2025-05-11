@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://b5pgxq4nkjrrn"]
+
+[ext_resource type="Texture2D" uid="uid://b2gtke6x3jpq5" path="res://Texture/birch_planks.png" id="1_n58n7"]
+
+[resource]
+diffuse_mode = 2
+albedo_texture = ExtResource("1_n58n7")
+uv1_scale = Vector3(1, -6, 1)
+texture_filter = 0
